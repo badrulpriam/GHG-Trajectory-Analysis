@@ -1,8 +1,7 @@
 # =============================================================================
 # SENSITIVITY ANALYSIS I — ALTERNATIVE THRESHOLD SPECIFICATIONS
 # Project  : GHG Persistence Study
-# Journal  : Science of the Total Environment (STOTEN)
-# =============================================================================
+#=============================================================================
 #
 # PURPOSE:
 #   Test robustness of the baseline trajectory classification to alternative
@@ -14,7 +13,7 @@
 #   Set A    : Stable = -10% to  +5%;  Mod. Rising =  +5% to  +75%; Rapid = >  +75%
 #   Set B    : Stable = -10% to +15%;  Mod. Rising = +15% to +150%; Rapid = > +150%
 #
-# INPUT  : outputs/tables/analysis1_trajectory_results.xlsx
+# INPUT  : outputs/tables/Analysis_Trajectory Classification.xlsx
 # OUTPUT : outputs/tables/Sensitivity Analysis_Threshold.xlsx
 #          outputs/figures/fig_s1_sensitivity.tiff / .pdf
 # =============================================================================
@@ -34,7 +33,7 @@ print("="*65)
 
 # ── LOAD DATA ─────────────────────────────────────────────────────────────────
 df = pd.read_excel(
-    os.path.join(TABLE_PATH,'analysis1_trajectory_results.xlsx'),
+    os.path.join(TABLE_PATH,'Analysis_Trajectory Classification.xlsx'),
     sheet_name='Country_Classifications'
 )
 pct = df['Change_Pct_1970_2024'].values

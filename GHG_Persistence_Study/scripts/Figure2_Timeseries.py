@@ -1,6 +1,6 @@
 """
 Figure 2: GHG Emission Trajectories by Category (1970-2024)
-4-panel time series - Publication quality for STOTEN
+4-panel time series - Publication quality
 """
 
 from pathlib import Path
@@ -16,8 +16,8 @@ warnings.filterwarnings('ignore')
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-CSV_PATH = PROJECT_ROOT / 'GHG_totals_by_country.csv'
-CLASSIFICATION_PATH = PROJECT_ROOT / 'outputs' / 'tables' / 'analysis1_trajectory_results.xlsx'
+CSV_PATH = PROJECT_ROOT / 'data' / 'processed' / 'Processed_GHG_totals_by_country.csv'
+CLASSIFICATION_PATH = PROJECT_ROOT / 'outputs' / 'tables' / 'Analysis_Trajectory Classification.xlsx'
 OUTPUT_PATH = PROJECT_ROOT / 'outputs' / 'figures' / 'Figure2_TimeSeries.png'
 
 # ─────────────────────────────────────────────
@@ -27,21 +27,9 @@ ghg = pd.read_csv(CSV_PATH)
 cls = pd.read_excel(CLASSIFICATION_PATH,
                     sheet_name='Country_Classifications')
 
-# Remove aggregate rows (retain only 208 entities)
-aggregates = ['GLOBAL TOTAL', 'EU27', 'International Aviation',
-              'International Shipping']
-ghg = ghg[~ghg['Country'].isin(aggregates)].copy()
-
 # Year columns
 years = list(range(1970, 2025))
 year_cols = [str(y) for y in years]
-
-# Fix composite entity name mismatches between CSV and classification file
-name_map = {
-    'Israel and Palestine, State of': 'Israel and Palestine',
-    'Italy, San Marino and the Holy See': 'Italy, San Marino and the Holy See',
-}
-ghg['Country'] = ghg['Country'].replace(name_map)
 
 # Merge trajectory classification
 ghg = ghg.merge(cls[['Country', 'Trajectory_Type']], on='Country', how='inner')

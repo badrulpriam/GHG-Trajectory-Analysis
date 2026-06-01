@@ -1,8 +1,7 @@
 # =============================================================================
 # ANALYSIS 1 — EMISSION TRAJECTORY CLASSIFICATION & SDG 13 ALIGNMENT
 # Project  : GHG Persistence Study
-# Journal  : Science of the Total Environment (STOTEN)
-# =============================================================================
+#=============================================================================
 #
 # RESEARCH QUESTION:
 #   Which national GHG emission trajectories are consistent with SDG 13
@@ -29,7 +28,7 @@ warnings.filterwarnings('ignore')
 
 # ── PATHS ─────────────────────────────────────────────────────────────────────
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_PATH    = os.path.join(PROJECT_ROOT, "data", "processed", "ghg_clean.csv")
+DATA_PATH    = os.path.join(PROJECT_ROOT, "data", "processed", "Processed_GHG_totals_by_country.csv")
 TABLE_PATH   = os.path.join(PROJECT_ROOT, "outputs", "tables")
 
 EDGAR_GLOBAL_TOTAL_2024 = 53206.4  # Mt CO2-eq — EDGAR GLOBAL TOTAL row, pre-exclusion
@@ -52,12 +51,9 @@ print("=" * 65)
 print("\n[Step 1] Loading data and computing trajectory metrics...")
 
 df = pd.read_csv(DATA_PATH)
-df['Year'] = df['Year'].astype(int)
-
-# Reshape to wide for metrics computation
-df_wide = df.pivot(
-    index='Country', columns='Year', values='GHG_Emissions'
-).copy()
+# Wide format: set Country as index, drop EDGAR_Code, cast year columns to int
+df_wide = df.set_index('Country').drop(columns=['EDGAR_Code'])
+df_wide.columns = df_wide.columns.astype(int)
 
 # Core metrics
 df_wide['emis_1970']         = df_wide[1970]
@@ -222,7 +218,7 @@ global_cagr_str = f"{df_wide['cagr_post_paris'].mean():+.3f} %/yr"
 print(f"  {'Global Mean':<18} {global_cagr_str:>12}   {'-':>15}   -")
 
 # Global headline stats
-total_1970 = df[df['Year']==1970]['GHG_Emissions'].sum()
+total_1970 = df_wide[1970].sum()
 print(f"\n  GLOBAL TOTALS:")
 print(f"    1970 : {total_1970:,.1f} Mt CO₂-eq")
 print(f"    2024 : {EDGAR_GLOBAL_TOTAL_2024:,.1f} Mt CO₂-eq")

@@ -1,7 +1,6 @@
 """
 Figure 3: Post-Paris Agreement CAGR Distribution by Trajectory Category
 Manuscript: Post-Paris GHG Emission Trajectories and SDG 13.2 Compatibility
-Journal: Science of the Total Environment (STOTEN)
 """
 
 import pandas as pd
