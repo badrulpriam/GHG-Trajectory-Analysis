@@ -8,8 +8,8 @@
 !.gitignore
 
 # Allow only Python scripts
-!GHG_Persistence_Study/scripts/*.py
+!GHG_Trajectory_Analysis_Study/scripts/*.py
 
 # Allow README and requirements
-!GHG_Persistence_Study/README.md
-!GHG_Persistence_Study/requirements.txt
+!GHG_Trajectory_Analysis_Study/README.md
+!GHG_Trajectory_Analysis_Study/requirements.txt
