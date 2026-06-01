@@ -15,7 +15,7 @@
 #
 # INPUT  : outputs/tables/Analysis_Trajectory Classification.xlsx
 # OUTPUT : outputs/tables/Sensitivity Analysis_Threshold.xlsx
-#          outputs/figures/fig_s1_sensitivity.tiff / .pdf
+#          
 # =============================================================================
 
 import os, warnings

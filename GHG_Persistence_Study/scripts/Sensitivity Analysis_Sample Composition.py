@@ -169,13 +169,13 @@ country_table['In_Spec3'] = (country_table['GHG_1970_Mt'] >= 10).map({True:'Yes'
 country_table = country_table.round(3).sort_values('GHG_1970_Mt', ascending=False)
 
 with pd.ExcelWriter(
-    os.path.join(TABLE_PATH,'Sensitivity Analysis_Sample Compostion.xlsx'),
+    os.path.join(TABLE_PATH,'Sensitivity Analysis_Sample Composition.xlsx'),
     engine='openpyxl'
 ) as writer:
     table_s2a.to_excel(writer, sheet_name='S2a_Spec_Comparison',   index=False)
     country_table.to_excel(writer, sheet_name='S2b_Country_Flags', index=False)
 
-print(f"  ✓ Saved: Sensitivity Analysis_Sample Compostion.xlsx")
+print(f"  ✓ Saved: Sensitivity Analysis_Sample Composition.xlsx")
 
 print("  Outputs:")
-print("  ✓ outputs/tables/Sensitivity Analysis_Sample Compostion.xlsx")
+print("  ✓ outputs/tables/Sensitivity Analysis_Sample Composition.xlsx")
