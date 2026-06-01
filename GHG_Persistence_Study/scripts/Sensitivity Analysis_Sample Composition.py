@@ -21,7 +21,7 @@ import pandas as pd
 warnings.filterwarnings('ignore')
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_PATH    = os.path.join(PROJECT_ROOT, "data", "processed", "ghg_clean.csv")
+DATA_PATH    = os.path.join(PROJECT_ROOT, "data", "processed", "Processed_GHG_totals_by_country.csv")
 TABLE_PATH   = os.path.join(PROJECT_ROOT, "outputs", "tables")
 EDGAR_GLOBAL_TOTAL_2024 = 53206.4  # Mt CO2-eq — EDGAR GLOBAL TOTAL row, pre-exclusion
 
@@ -33,13 +33,10 @@ print("="*65)
 
 # ── LOAD ORIGINAL RAW DATA ────────────────────────────────────────────────────
 print("\n[Step 1] Loading original processed data...")
-df_long = pd.read_csv(DATA_PATH)
-df_long['Year'] = df_long['Year'].astype(int)
-
-# Pivot to wide for metric computation
-df_wide = df_long.pivot(
-    index='Country', columns='Year', values='GHG_Emissions'
-).copy()
+df_wide = pd.read_csv(DATA_PATH)
+# Wide format: set Country as index, drop EDGAR_Code, cast year columns to int
+df_wide = df_wide.set_index('Country').drop(columns=['EDGAR_Code'])
+df_wide.columns = df_wide.columns.astype(int)
 
 # Compute all metrics from scratch
 df_wide['emis_1970']          = df_wide[1970]
@@ -114,7 +111,7 @@ for spec_name, res in spec_results.items():
     sn     = spec_name.replace('\n',' ')
     rapid  = res['counts']['Rapidly Rising']
     share  = res['shares']['Rapidly Rising']
-    holds  = 'YES ✓' if rapid > res['n']*0.5 else 'MODIFIED*'
+    holds  = 'YES ✓' if rapid > res['n']*0.5 else 'No'
     print(f"  {sn:<42} {rapid:>3}/{res['n']:<3} ({share:.1f}%)  {holds}")
 
 print(f"\n  * At Spec 3 (≥10 Mt threshold), SDG 13.2-Critical share = 47.3%.")
