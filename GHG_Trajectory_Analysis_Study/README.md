@@ -1,4 +1,4 @@
-# GHG Persistence Study — Replication Code
+# Replication Code
 
 This repository contains the analysis scripts to reproduce all results, tables, and figures in the paper.
 
