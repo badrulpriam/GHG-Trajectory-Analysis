@@ -1,0 +1,141 @@
+# ============================================================
+# GHG All Analyses — .gitignore
+# ============================================================
+
+# ------------------------------------------------------------
+# Python virtual environment (10,977 files — never commit)
+# ------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# ------------------------------------------------------------
+# Jupyter Notebooks checkpoints
+# ------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# ------------------------------------------------------------
+# Data files — may contain licensed/restricted source data
+# (EDGAR database data has usage restrictions)
+# ------------------------------------------------------------
+data/
+*.csv
+*.tsv
+*.parquet
+*.h5
+*.hdf5
+*.feather
+*.pkl
+*.pickle
+
+# ------------------------------------------------------------
+# Outputs — reproducible from scripts, can be large
+# ------------------------------------------------------------
+outputs/
+*.pdf
+*.tiff
+*.tif
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.eps
+
+# ------------------------------------------------------------
+# Excel / Office outputs — generated results tables
+# ------------------------------------------------------------
+*.xlsx
+*.xls
+*.xlsm
+
+# ------------------------------------------------------------
+# Unpublished manuscript drafts — confidential until published
+# ------------------------------------------------------------
+*.docx
+*.doc
+*.odt
+
+# ------------------------------------------------------------
+# Literature & reference PDFs — copyright protected
+# (already covered by *.pdf above, explicit for clarity)
+# ------------------------------------------------------------
+Introduction/
+Methodology/
+Discussion/
+
+# ------------------------------------------------------------
+# Environment & secret files
+# ------------------------------------------------------------
+.env
+.env.*
+*.env
+secrets.yaml
+secrets.json
+config/secrets*
+credentials*
+
+# ------------------------------------------------------------
+# OS-generated files
+# ------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# ------------------------------------------------------------
+# IDE & editor files
+# ------------------------------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.spyderproject
+*.spyproject
+.ropeproject/
+
+# ------------------------------------------------------------
+# Logs & temporary files
+# ------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# ------------------------------------------------------------
+# What IS tracked (for reference):
+#   - All Python scripts (*.py)
+#   - This .gitignore
+#   - CLAUDE.md (if present)
+#   - requirements.txt / pyproject.toml / setup.py (if present)
+# ------------------------------------------------------------
