@@ -12,7 +12,7 @@ from pathlib import Path
 
 # ── Paths ──────────────────────────────────────────────────────────────────
 # Make input path script-relative so the script works when run from any CWD.
-INPUT_PATH  = Path(__file__).resolve().parents[1] / "GHG_totals_by_country.csv"   # adjust if needed
+INPUT_PATH  = Path(__file__).resolve().parents[1] / "data" / "processed" / "Processed_GHG_totals_by_country.csv"
 # Save output in the project's outputs/figures directory
 OUTPUT_PATH = Path(__file__).resolve().parents[1] / "outputs" / "figures" / "Figure3_PostParis_CAGR.png"
 
