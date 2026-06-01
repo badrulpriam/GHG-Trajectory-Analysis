@@ -1,39 +1,14 @@
 # ============================================================
 # GHG All Analyses — .gitignore
 # ============================================================
+# Only Python scripts and this file are tracked.
+# Everything else (data, outputs, drafts, cache) is excluded.
+# ============================================================
+
 
 # ------------------------------------------------------------
-# Python virtual environment (10,977 files — never commit)
-# ------------------------------------------------------------
-.venv/
-venv/
-env/
-ENV/
-
-# Python cache & compiled files
-__pycache__/
-*.py[cod]
-*$py.class
-*.pyo
-*.pyd
-*.so
-
-# Distribution / packaging
-dist/
-build/
-*.egg-info/
-*.egg
-.eggs/
-
-# ------------------------------------------------------------
-# Jupyter Notebooks checkpoints
-# ------------------------------------------------------------
-.ipynb_checkpoints/
-*.ipynb
-
-# ------------------------------------------------------------
-# Data files — may contain licensed/restricted source data
-# (EDGAR database data has usage restrictions)
+# RAW & PROCESSED DATA — licensed EDGAR source data
+# EDGAR data has usage restrictions; never commit to public repo
 # ------------------------------------------------------------
 data/
 *.csv
@@ -45,74 +20,110 @@ data/
 *.pkl
 *.pickle
 
+# Catch any stray CSV placed outside data/
+GHG_Persistence_Study/GHG_totals_by_country.csv
+
+
 # ------------------------------------------------------------
-# Outputs — reproducible from scripts, can be large
+# OUTPUTS — reproducible from scripts; can be large files
 # ------------------------------------------------------------
 outputs/
+
+# Figures
+*.png
 *.pdf
 *.tiff
 *.tif
-*.png
 *.jpg
 *.jpeg
 *.svg
 *.eps
 
-# ------------------------------------------------------------
-# Excel / Office outputs — generated results tables
-# ------------------------------------------------------------
+# Tables and reports
 *.xlsx
 *.xls
 *.xlsm
+*.txt
+
 
 # ------------------------------------------------------------
-# Unpublished manuscript drafts — confidential until published
+# MANUSCRIPT DRAFTS — confidential until published
 # ------------------------------------------------------------
 *.docx
 *.doc
 *.odt
+*.rtf
 
-# ------------------------------------------------------------
-# Literature & reference PDFs — copyright protected
-# (already covered by *.pdf above, explicit for clarity)
-# ------------------------------------------------------------
+# Common manuscript folder names
+manuscript/
+drafts/
+submission/
+revision/
 Introduction/
 Methodology/
 Discussion/
+Supplementary/
+
 
 # ------------------------------------------------------------
-# Environment & secret files
+# CREDENTIALS & ENVIRONMENT — never commit secrets
 # ------------------------------------------------------------
 .env
 .env.*
 *.env
 secrets.yaml
 secrets.json
-config/secrets*
 credentials*
+config/secrets*
+
 
 # ------------------------------------------------------------
-# OS-generated files
+# PYTHON — virtual environments & cache
+# ------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+
+
+# ------------------------------------------------------------
+# JUPYTER
+# ------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+
+# ------------------------------------------------------------
+# OS-GENERATED FILES
 # ------------------------------------------------------------
 # Windows
 Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 *.lnk
 
 # macOS
 .DS_Store
-.AppleDouble
-.LSOverride
 ._*
 
 # Linux
 *~
 
+
 # ------------------------------------------------------------
-# IDE & editor files
+# IDE & EDITOR
 # ------------------------------------------------------------
 .vscode/
 .idea/
@@ -122,8 +133,9 @@ $RECYCLE.BIN/
 *.spyproject
 .ropeproject/
 
+
 # ------------------------------------------------------------
-# Logs & temporary files
+# LOGS & TEMP
 # ------------------------------------------------------------
 *.log
 *.tmp
@@ -132,10 +144,9 @@ $RECYCLE.BIN/
 *.swp
 *.swo
 
+
 # ------------------------------------------------------------
-# What IS tracked (for reference):
-#   - All Python scripts (*.py)
-#   - This .gitignore
-#   - CLAUDE.md (if present)
-#   - requirements.txt / pyproject.toml / setup.py (if present)
+# WHAT IS TRACKED (for reference)
+#   GHG_Persistence_Study/scripts/*.py   — all analysis scripts
+#   .gitignore                           — this file
 # ------------------------------------------------------------
