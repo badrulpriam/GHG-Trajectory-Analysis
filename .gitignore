@@ -13,3 +13,8 @@
 # Allow README and requirements
 !GHG_Trajectory_Analysis_Study/README.md
 !GHG_Trajectory_Analysis_Study/requirements.txt
+
+# Allow output tables
+!GHG_Trajectory_Analysis_Study/outputs/tables/Analysis_Trajectory Classification.xlsx
+!GHG_Trajectory_Analysis_Study/outputs/tables/Sensitivity Analysis_Threshold.xlsx
+!GHG_Trajectory_Analysis_Study/outputs/tables/Sensitivity Analysis_Sample Composition.xlsx
