@@ -1,3 +1,11 @@
+
+Title: Post-Paris Agreement GHG Emission Trajectories and SDG 13.2 Compatibility: A 54-Year Assessment of 208 Countries and Territories
+Authors: Badrul Huda Priam, MD Shiyan Sadik
+Institution: North South University, Dhaka, Bangladesh
+
+
+
+
 # Replication Code
 
 This repository contains the analysis scripts to reproduce all results, tables, and figures in the paper.
