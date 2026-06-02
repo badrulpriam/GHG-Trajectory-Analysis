@@ -28,7 +28,9 @@ pip install -r requirements.txt
 Download the raw data file from EDGAR (Emissions Database for Global Atmospheric Research):
 
 - Source: https://edgar.jrc.ec.europa.eu/
-- File: `GHG_totals_by_country.csv`
+- 
+- Data download: EDGAR GHG emissions
+- File:`GHG_totals_by_country.csv`
 - Place the file in the root of the `GHG_Trajectory_Analysis_Study/` folder
 
 ---
