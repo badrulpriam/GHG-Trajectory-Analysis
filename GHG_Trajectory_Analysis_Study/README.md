@@ -1,4 +1,12 @@
-# GHG Persistence Study — Replication Code
+
+Title: Post-Paris Agreement GHG Emission Trajectories and SDG 13.2 Compatibility: A 54-Year Assessment of 208 Countries and Territories
+Authors: Badrul Huda Priam, MD Shiyan Sadik
+Institution: North South University, Dhaka, Bangladesh
+
+
+
+
+# Replication Code
 
 This repository contains the analysis scripts to reproduce all results, tables, and figures in the paper.
 
@@ -20,7 +28,9 @@ pip install -r requirements.txt
 Download the raw data file from EDGAR (Emissions Database for Global Atmospheric Research):
 
 - Source: https://edgar.jrc.ec.europa.eu/
-- File: `GHG_totals_by_country.csv`
+- Go to CO2 and GHG emissions report, then find the Data download section.
+- Data download: EDGAR GHG emissions
+- File:`GHG_totals_by_country.csv`
 - Place the file in the root of the `GHG_Trajectory_Analysis_Study/` folder
 
 ---
