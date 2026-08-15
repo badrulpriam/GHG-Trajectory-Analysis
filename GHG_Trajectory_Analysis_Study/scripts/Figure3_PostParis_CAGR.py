@@ -55,10 +55,10 @@ mean_colors = {
     'Rapidly Rising':   '#67000d',   # dark red
 }
 category_labels = {
-    'Declining':        '(A) Declining\n[SDG 13.2-Aligned, n=31]',
-    'Stable':           '(B) Stable\n[SDG 13.2-Transitioning, n=11]',
-    'Moderately Rising':'(C) Moderately Rising\n[SDG 13.2-At Risk, n=30]',
-    'Rapidly Rising':   '(D) Rapidly Rising\n[SDG 13.2-Critical, n=136]',
+    'Declining':        '(A) Declining\n[n=31]',
+    'Stable':           '(B) Stable\n[n=11]',
+    'Moderately Rising':'(C) Moderately Rising\n[n=30]',
+    'Rapidly Rising':   '(D) Rapidly Rising\n[n=136]',
 }
 
 # ── Figure Setup ───────────────────────────────────────────────────────────

@@ -18,3 +18,10 @@
 !GHG_Trajectory_Analysis_Study/outputs/tables/Analysis_Trajectory Classification.xlsx
 !GHG_Trajectory_Analysis_Study/outputs/tables/Sensitivity Analysis_Threshold.xlsx
 !GHG_Trajectory_Analysis_Study/outputs/tables/Sensitivity Analysis_Sample Composition.xlsx
+!GHG_Trajectory_Analysis_Study/outputs/tables/Sensitivity_Analysis_Alternative_Baselines.xlsx
+!GHG_Trajectory_Analysis_Study/outputs/tables/Uncertainty_classification_results.xlsx
+!GHG_Trajectory_Analysis_Study/outputs/tables/emission_weighted_results.xlsx
+
+# Allow figures
+!GHG_Trajectory_Analysis_Study/outputs/figures/Figure2_TimeSeries.png
+!GHG_Trajectory_Analysis_Study/outputs/figures/Figure3_PostParis_CAGR.png

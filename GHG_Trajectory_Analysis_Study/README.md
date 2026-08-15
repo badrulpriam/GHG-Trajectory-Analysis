@@ -1,5 +1,5 @@
 
-Title: Post-Paris Agreement GHG Emission Trajectories and SDG 13.2 Compatibility: A 54-Year Assessment of 208 Countries and Territories
+Title: Post-Paris Agreement GHG Emissions of 208 Countries and Territories: A 54-Year Descriptive Trajectory Classification Relevant to SDG 13.2.2 Monitoring (1970-2024)
 Authors: Badrul Huda Priam, MD Shiyan Sadik
 Institution: North South University, Dhaka, Bangladesh
 
@@ -50,8 +50,11 @@ GHG_Trajectory_Analysis_Study/
 │   ├── Analysis_Trajectory Classification.py
 │   ├── Figure2_Timeseries.py
 │   ├── Figure3_PostParis_CAGR.py
+│   ├── Sensitivity Analysis_Threshold.py
 │   ├── Sensitivity Analysis_Sample Composition.py
-│   └── Sensitivity Analysis_Threshold.py
+│   ├── Sensitivity Analysis_Alternative Baselines.py
+│   ├── Sensitivity Analysis_Uncertainty Classification.py
+│   └── Emission_Weighted_Analysis.py
 ├── requirements.txt
 └── README.md
 ```
@@ -139,6 +142,45 @@ Tests robustness of results to exclusion of small-emitting countries.
 
 Output:
 - `outputs/tables/Sensitivity Analysis_Sample Composition.xlsx`
+
+---
+
+### Step 7 — Sensitivity Analysis III (Alternative Baselines)
+
+```
+python scripts/"Sensitivity Analysis_Alternative Baselines.py"
+```
+
+Re-derives classifications using alternative baseline years (1990, 2000, 2015 instead of 1970) to test robustness of the trajectory classification to base-year choice.
+
+Output:
+- `outputs/tables/Sensitivity_Analysis_Alternative_Baselines.xlsx`
+
+---
+
+### Step 8 — Sensitivity Analysis IV (Uncertainty Classification)
+
+```
+python scripts/"Sensitivity Analysis_Uncertainty Classification.py"
+```
+
+Propagates EDGAR inventory uncertainty (±5% for OECD countries, ±15% for non-Annex I countries) into each country's change percentage and flags classifications as Robust or Ambiguous near threshold boundaries.
+
+Output:
+- `outputs/tables/uncertainty_classification_results.xlsx`
+
+---
+
+### Step 9 — Emission-Weighted Analysis
+
+```
+python scripts/Emission_Weighted_Analysis.py
+```
+
+Computes emission-weighted (vs. unweighted) mean post-Paris CAGR per trajectory group, each group's share of 2024 global emissions, and each group's contribution to the 1970–2024 absolute emission increase.
+
+Output:
+- `outputs/tables/emission_weighted_results.xlsx`
 
 ---
 

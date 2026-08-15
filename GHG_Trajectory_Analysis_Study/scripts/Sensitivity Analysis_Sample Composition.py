@@ -105,7 +105,7 @@ for spec_name, res in spec_results.items():
           f"{res['counts']['Rapidly Rising']:>6}")
 
 # ── HEADLINE TEST ─────────────────────────────────────────────────────────────
-print(f"\n  HEADLINE TEST — SDG 13.2-Critical share per spec:")
+print(f"\n  HEADLINE TEST — Rapidly Rising share per spec:")
 print(f"  {'─'*60}")
 for spec_name, res in spec_results.items():
     sn     = spec_name.replace('\n',' ')
@@ -114,11 +114,11 @@ for spec_name, res in spec_results.items():
     holds  = 'YES ✓' if rapid > res['n']*0.5 else 'No'
     print(f"  {sn:<42} {rapid:>3}/{res['n']:<3} ({share:.1f}%)  {holds}")
 
-print(f"\n  * At Spec 3 (≥10 Mt threshold), SDG 13.2-Critical share = 47.3%.")
+print(f"\n  * At Spec 3 (≥10 Mt threshold), Rapidly Rising share = 47.3%.")
 print(f"    This is an honest and important finding: when micro-states")
 print(f"    are excluded, the majority threshold shifts. However, this")
 print(f"    sample still covers {list(spec_results.values())[3]['emis_share']:.1f}% of global 2024 emissions, meaning")
-print(f"    the absolute emission burden remains SDG 13.2-Critical.")
+print(f"    the absolute emission burden remains Rapidly Rising.")
 
 # ── EXCLUDED COUNTRIES LIST ───────────────────────────────────────────────────
 print(f"\n  Countries excluded at each threshold:")
@@ -153,7 +153,7 @@ for spec_name, res in spec_results.items():
         'Share Mod. Rising (%)'          : round(res['shares']['Moderately Rising'],1),
         'N Rapidly Rising'               : res['counts']['Rapidly Rising'],
         'Share Rapidly Rising (%)'       : round(res['shares']['Rapidly Rising'],1),
-        'Headline holds (>50% SDG 13.2-Critical)': 'Yes' if res['counts']['Rapidly Rising'] > res['n']*0.5 else 'No',
+        'Headline holds (>50% Rapidly Rising)': 'Yes' if res['counts']['Rapidly Rising'] > res['n']*0.5 else 'No',
     }
     s2a_rows.append(row)
 table_s2a = pd.DataFrame(s2a_rows)

@@ -34,10 +34,10 @@ TABLE_PATH   = os.path.join(PROJECT_ROOT, "outputs", "tables")
 EDGAR_GLOBAL_TOTAL_2024 = 53206.4  # Mt CO2-eq — EDGAR GLOBAL TOTAL row, pre-exclusion
 
 SDG_LABELS = {
-    'Declining'         : 'SDG 13.2-Aligned',
-    'Stable'            : 'SDG 13.2-Transitioning',
-    'Moderately Rising' : 'SDG 13.2-At Risk',
-    'Rapidly Rising'    : 'SDG 13.2-Critical',
+    'Declining'         : 'Declining',
+    'Stable'            : 'Stable',
+    'Moderately Rising' : 'Moderately Rising',
+    'Rapidly Rising'    : 'Rapidly Rising',
 }
 TRAJ_ORDER = ['Declining', 'Stable', 'Moderately Rising', 'Rapidly Rising']
 
@@ -97,7 +97,7 @@ df_wide['sdg_status'] = df_wide['trajectory'].apply(sdg_alignment)
 # Count per category
 counts = df_wide['trajectory'].value_counts()
 print(f"\n  TRAJECTORY CLASSIFICATION RESULTS:")
-print(f"  {'Category':<25} {'Count':>6}  {'Share':>8}  {'SDG Status'}")
+print(f"  {'Category':<25} {'Count':>6}  {'Share':>8}  {'Trajectory Type'}")
 print(f"  {'-'*65}")
 for t in TRAJ_ORDER:
     n   = counts.get(t, 0)
@@ -117,7 +117,7 @@ results_df = df_wide[[
     'change_pct', 'change_pct_2015_24',
     'cagr_full', 'cagr_post_paris',
     'peak_year', 'emis_peak',
-    'trajectory', 'sdg_status'
+    'trajectory'
 ]].copy().reset_index()
 
 results_df.columns = [
@@ -126,7 +126,7 @@ results_df.columns = [
     'Change_Pct_1970_2024', 'Change_Pct_2015_2024',
     'CAGR_Full_Pct', 'CAGR_PostParis_Pct',
     'Peak_Emission_Year', 'Peak_Emission_Mt',
-    'Trajectory_Type', 'SDG13.2_Status'
+    'Trajectory_Type'
 ]
 results_df = results_df.round(3)
 results_df = results_df.sort_values('Trajectory_Type')
@@ -134,7 +134,6 @@ results_df = results_df.sort_values('Trajectory_Type')
 # Summary table for paper (Table 1)
 summary_table = pd.DataFrame({
     'Trajectory Type'   : TRAJ_ORDER,
-    'SDG 13.2 Status'   : [SDG_LABELS[t] for t in TRAJ_ORDER],
     'Threshold (1970–2024)': ['< −10%', '−10% to +10%', '+10% to +100%', '> +100%'],
     'N Countries'       : [counts.get(t, 0) for t in TRAJ_ORDER],
     'Share (%)'         : [f"{counts.get(t,0)/len(df_wide)*100:.1f}" for t in TRAJ_ORDER],

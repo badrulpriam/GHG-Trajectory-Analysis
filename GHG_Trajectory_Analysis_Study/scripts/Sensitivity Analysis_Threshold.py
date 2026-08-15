@@ -108,7 +108,7 @@ for _, r in changed_B.iterrows():
           f"{r['Class_Baseline']:<22} → {r['Class_SetB']}")
 
 # ── HEADLINE TEST ─────────────────────────────────────────────────────────────
-print(f"\n  HEADLINE TEST — majority of nations SDG 13.2-Critical:")
+print(f"\n  HEADLINE TEST — majority of nations Rapidly Rising:")
 print(f"  {'─'*55}")
 for s, counts in system_counts.items():
     nr    = counts['Rapidly Rising']
@@ -128,7 +128,7 @@ s1a = pd.DataFrame({
     'N Rapidly Rising'            : [system_counts[s]['Rapidly Rising']      for s in SYSTEMS],
     'Countries reclassified'      : [0, len(changed_A), len(changed_B)],
     'Reclassified (%)'            : ['0%',f'{len(changed_A)/n*100:.1f}%',f'{len(changed_B)/n*100:.1f}%'],
-    'Headline holds (>50% SDG 13.2-Critical)': [
+    'Headline holds (>50% Rapidly Rising)': [
         'Yes' if system_counts[s]['Rapidly Rising']>n*0.5 else 'No'
         for s in SYSTEMS
     ],
@@ -162,7 +162,7 @@ print(f"""
   PAPER-READY SENSITIVITY STATEMENT
 {"="*65}
 
-  SDG 13.2-Critical (Rapidly Rising) counts:
+  Rapidly Rising counts:
     Baseline : {br}/208 ({br/208*100:.1f}%)
     Set A    : {ar}/208 ({ar/208*100:.1f}%)
     Set B    : {bsr}/208 ({bsr/208*100:.1f}%)
@@ -173,6 +173,6 @@ print(f"""
 
   Declining count: IDENTICAL in all systems (n=31, 14.9%)
 
-  Headline holds in ALL systems — majority SDG 13.2-Critical: YES
+  Headline holds in ALL systems — majority Rapidly Rising: YES
 {"="*65}
 """)

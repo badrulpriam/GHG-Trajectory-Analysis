@@ -53,13 +53,6 @@ PANEL_LABELS = {
     'Rapidly Rising':   'D',
 }
 
-SDG_STATUS = {
-    'Declining':        'SDG 13.2-Aligned',
-    'Stable':           'SDG 13.2-Transitioning',
-    'Moderately Rising':'SDG 13.2-At Risk',
-    'Rapidly Rising':   'SDG 13.2-Critical',
-}
-
 # ─────────────────────────────────────────────
 # 3. FIGURE SETUP
 # ─────────────────────────────────────────────
@@ -99,7 +92,6 @@ ax_list = [axes[0,0], axes[0,1], axes[1,0], axes[1,1]]
 for ax, cat in zip(ax_list, CATEGORIES):
     color  = COLORS[cat]
     label  = PANEL_LABELS[cat]
-    status = SDG_STATUS[cat]
 
     subset = ghg[ghg['Trajectory_Type'] == cat]
     n      = len(subset)
@@ -154,7 +146,7 @@ for ax, cat in zip(ax_list, CATEGORIES):
 
     # ── Panel title with label prepended
     ax.set_title(
-        f'({label}) {cat}  [n={n}, {status}]',
+        f'({label}) {cat}  [n={n}]',
         fontsize=10, fontweight='bold',
         color=color, pad=6
     )
