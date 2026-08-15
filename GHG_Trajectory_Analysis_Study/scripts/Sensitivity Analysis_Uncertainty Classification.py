@@ -1,6 +1,5 @@
 """
 Sensitivity Analysis — Uncertainty Classification
-STOTEN-D-26-02898
 
 Purpose:
     Identifies borderline classifications near each threshold boundary under
